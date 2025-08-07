@@ -5,13 +5,26 @@ import { CiSearch } from "react-icons/ci";
 type SortDirection = "asc" | "desc" | null;
 type SortField = "name" | "postId" | "email" | null;
 
+interface FilterBarProps {
+  onSortChange: (field: SortField, direction: SortDirection) => void;
+  onSearchChange: (searchTerm: string) => void;
+  initialSort?: { field: SortField; direction: SortDirection };
+  initialSearch?: string;
+}
+
 const FilterBar = ({
   onSortChange,
-}: {
-  onSortChange: (field: SortField, direction: SortDirection) => void;
-}) => {
-  const [sortField, setSortField] = useState<SortField>(null);
-  const [sortDirection, setSortDirection] = useState<SortDirection>(null);
+  onSearchChange,
+  initialSort,
+  initialSearch = "",
+}: FilterBarProps) => {
+  const [sortField, setSortField] = useState<SortField>(
+    initialSort?.field ?? null
+  );
+  const [sortDirection, setSortDirection] = useState<SortDirection>(
+    initialSort?.direction ?? null
+  );
+  const [searchTerm, setSearchTerm] = useState(initialSearch);
 
   const handleSortClick = (field: SortField) => {
     if (sortField !== field) {
@@ -47,7 +60,7 @@ const FilterBar = ({
     if (sortDirection === "asc")
       return (
         <>
-          <IoIosArrowUp className={"text-black"} />
+          <IoIosArrowUp className={"text-blue-900"} />
           <IoIosArrowDown className={"text-gray-400"} />
         </>
       );
@@ -55,18 +68,19 @@ const FilterBar = ({
       return (
         <>
           <IoIosArrowUp className={"text-gray-400"} />
-          <IoIosArrowDown className={"text-black"} />
+          <IoIosArrowDown className={"text-blue-900"} />
         </>
       );
     return null;
   };
 
   return (
-    <div className="flex justify-between items-center p-4 bg-white ">
-      <div className="flex gap-3">
+    <div className="flex justify-between text-blue-900 items-start  bg-white ">
+      {/* Sort Buttons */}
+      <div className="flex gap-4 pt-14">
         <button
           onClick={() => handleSortClick("postId")}
-          className="shadow-button px-3 py-1 rounded text-sm bg-gray-50 hover:bg-gray-100 flex flex-row gap-1"
+          className="shadow-button  px-3 py-1 rounded-lg text-sm bg-gray-50 hover:bg-gray-100 flex flex-row gap-1"
         >
           Sort Post ID
           <div className="flex flex-col text-[10px]">
@@ -75,14 +89,14 @@ const FilterBar = ({
         </button>
         <button
           onClick={() => handleSortClick("name")}
-          className="shadow-button px-3 py-1 rounded text-sm bg-gray-50 hover:bg-gray-100  flex flex-row gap-1"
+          className="shadow-button px-3 py-1 rounded-lg text-sm bg-gray-50 hover:bg-gray-100  flex flex-row gap-1"
         >
           Sort Name
           <div className="flex flex-col text-[10px]">{renderArrow("name")}</div>
         </button>
         <button
           onClick={() => handleSortClick("email")}
-          className="shadow-button px-3 py-1 rounded text-sm bg-gray-50 hover:bg-gray-100  flex flex-row gap-1"
+          className="shadow-button px-3 py-1 rounded-lg text-sm bg-gray-50 hover:bg-gray-100  flex flex-row gap-1"
         >
           Sort Email
           <div className="flex flex-col text-[10px]">
@@ -90,12 +104,18 @@ const FilterBar = ({
           </div>
         </button>
       </div>
-      <div className="relative w-72">
-        <CiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400 text-sm" />
+      {/* Search bar */}
+      <div className="relative w-72 py-7">
+        <CiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400 text-base" />
         <input
           type="text"
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+            onSearchChange(e.target.value);
+          }}
           placeholder="Search name, email, comment"
-          className="shadow-button pl-9 pr-3 py-1 rounded placeholder:text-base w-full text-sm focus:outline-none focus:ring-1 focus:ring-gray-400"
+          className="shadow-button pl-9 h-11 pr-3 py-1 rounded-lg placeholder:text-sm w-full text-sm focus:outline-none focus:ring-1 focus:ring-gray-400"
         />
       </div>
     </div>
