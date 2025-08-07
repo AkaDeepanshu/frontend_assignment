@@ -1,0 +1,11 @@
+@import "tailwindcss";
+* {
+  margin: 0px;
+}
+
+@theme {
+  --color-custom: #282846;
+  --shadow-custom: 0px 3px 8px rgba(0, 0, 0, 0.24);
+  --shadow-button: 0px 6px 24px rgba(0, 0, 0, 0.05),
+    0px 0px 0px 1px rgba(0, 0, 0, 0.08);
+}
