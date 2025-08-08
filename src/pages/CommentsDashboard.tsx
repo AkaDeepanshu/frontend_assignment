@@ -5,6 +5,7 @@ import Table from "../components/Table";
 import { fetchComments } from "../services/commentServices";
 import type { Comment } from "../types/comment";
 import CommentSkeleton from "../components/CommentSkeleton";
+import ErrorMessage from "../components/ErrorMessage";
 
 type SortDirection = "asc" | "desc" | null;
 type SortField = "postId" | "name" | "email" | null;
@@ -151,11 +152,18 @@ const CommentsDashboard = () => {
   const paginatedComments = filteredComments.slice(startIndex, endIndex);
 
   if (isLoading) {
-    return <CommentSkeleton/>;
+    return <CommentSkeleton />;
   }
 
   if (error) {
-    return <div>Error loading comments</div>;
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <ErrorMessage
+          message="Failed to load comments"
+          onRetry={() => window.location.reload()}
+        />
+      </div>
+    );
   }
 
   return (

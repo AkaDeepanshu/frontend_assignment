@@ -23,13 +23,13 @@ const Table: React.FC<TableProps> = ({
   const endIndex = Math.min(startIndex + itemsPerPage - 1, totalItems);
 
   return (
-    <div className="bg-white flex flex-col items-between justify-center">
+    <div className="bg-white flex flex-col items-between justify-center scrollbar-hide">
       {/* Table */}
-      <div className="overflow-x-auto w-full">
-        <table className="min-w-[800px] table-fixed w-full">
+      <div className="overflow-x-auto w-full scrollbar-hide">
+        <table className="min-w-[800px] table-fixed w-full scrollbar-hide">
           <thead>
             <tr className="bg-gray-300 ">
-              <th className="px-6 py-3 w-[100px] rounded-tl-md text-left font-semibold truncate text-gray-700">
+              <th className="px-6 py-5 w-[120px] rounded-tl-md text-left font-semibold truncate text-gray-700">
                 Post ID
               </th>
               <th className="px-6 py-3 w-[30%] text-left font-semibold text-gray-700">
@@ -49,7 +49,7 @@ const Table: React.FC<TableProps> = ({
                 key={comment.id}
                 className="shadow-table-field h-20 text-blue-950"
               >
-                <td className="px-6 py-3 w-[100px] font-semibold whitespace-nowrap">{comment.postId}</td>
+                <td className="px-6 py-3 w-[120px] font-semibold whitespace-nowrap">{comment.postId}</td>
                 <td className="px-6 py-3 w-[30%] break-words">{comment.name}</td>
                 <td className="px-6 py-3 w-[30%] break-words">{comment.email}</td>
                 <td className="px-4 py-3 flex-1 relative group max-w-xs">
@@ -58,7 +58,7 @@ const Table: React.FC<TableProps> = ({
               </p>
 
               {/* Hover dialog */}
-              <div className="absolute z-10 hidden group-hover:block top-full left-0 mt-1 w-64 p-3 bg-white shadow-lg border rounded-md text-sm text-gray-800">
+              <div className="absolute z-10 hidden group-hover:block top-1 -left-1 mt-1 w-64 p-3 bg-white shadow-lg border rounded-md text-sm text-gray-800">
                 {comment.body}
               </div>
             </td>
