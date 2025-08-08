@@ -34,7 +34,7 @@ const Profile = () => {
         {/* Profile Section */}
         <div className="shadow-custom rounded-xl p-2 sm:p-8 text-custom">
           <div className=" pt-6 sm:pt-0 sm:py-6 px-2 sm:px-6">
-            <div className="flex items-center gap-4 sm:gap-6 pb-6 mb-6">
+            <div className="flex items-center gap-4 sm:gap-6 sm:pb-6 mb-6">
             <div className="h-[80px] w-[80px] sm:h-[90px] sm:w-[90px] flex justify-center items-center rounded-full overflow-hidden bg-gray-200">
               <img className="h-[70px] w-[70-px]" src={avatar} alt="dp" />
             </div>
@@ -44,7 +44,7 @@ const Profile = () => {
             </div>
           </div>
           {/* User Data Fields Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2 sm:mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 mt-2 sm:mt-8">
             <div>
               <label className="font-normal text-[16px]">User ID</label>
               <p className="bg-gray-100 rounded-lg p-2 my-2">{user?.id}</p>
