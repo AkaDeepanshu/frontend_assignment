@@ -32,9 +32,9 @@ const Profile = () => {
 
         {/* Profile Section */}
         <div className="shadow-custom rounded-xl p-2 sm:p-8 text-custom">
-          <div className="py-6 px-6">
-            <div className="flex items-center gap-6 pb-6 mb-6">
-            <div className="h-[90px] w-[90px] flex justify-center items-center rounded-full overflow-hidden bg-gray-200">
+          <div className="py-6 px-2 sm:px-6">
+            <div className="flex items-center gap-4 sm:gap-6 pb-6 mb-6">
+            <div className="h-[80px] w-[80px] sm:h-[90px] sm:w-[90px] flex justify-center items-center rounded-full overflow-hidden bg-gray-200">
               <img className="h-[70px] w-[70-px]" src={avatar} alt="dp" />
             </div>
             <div className="flex flex-col ">

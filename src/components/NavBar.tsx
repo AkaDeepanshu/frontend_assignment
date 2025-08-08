@@ -14,7 +14,7 @@ const NavBar = () => {
 
   return (
     <div className=" bg-custom flex items-center justify-center">
-      <div className="w-11/12 flex justify-between p-5">
+      <div className="w-11/12 flex justify-between p-3 sm:p-5">
         <img src={logo} alt="Logo" />
         <button
           onClick={() => navigate("/profile")}
