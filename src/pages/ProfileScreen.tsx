@@ -22,9 +22,9 @@ const Profile = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="w-11/12  mx-auto px-6">
+      <div className="w-11/12  mx-auto px-2 sm:px-6">
         {/* Back button */}
-        <div className="flex items-center gap-2 text-2xl py-10 text-custom">
+        <div className="flex items-center gap-2 text-2xl py-4 sm:py-10 text-custom">
           <button className="cursor-pointer" onClick={() => navigate("/dashboard")}>
             <IoIosArrowRoundBack className="text-3xl" />
           </button>
