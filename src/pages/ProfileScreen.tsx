@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchUser } from "../services/userService";
 import { useNavigate } from "react-router-dom";
 import type { User } from "../types/user";
+import ProfileSkeleton from "../components/ProfileSkeleton";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Profile = () => {
     queryFn: fetchUser,
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <ProfileSkeleton />;
   if (error) return <div>Error loading user data</div>;
 
   return (

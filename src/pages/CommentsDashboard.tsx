@@ -4,6 +4,7 @@ import FilterBar from "../components/FilterBar";
 import Table from "../components/Table";
 import { fetchComments } from "../services/commentServices";
 import type { Comment } from "../types/comment";
+import CommentSkeleton from "../components/CommentSkeleton";
 
 type SortDirection = "asc" | "desc" | null;
 type SortField = "postId" | "name" | "email" | null;
@@ -150,7 +151,7 @@ const CommentsDashboard = () => {
   const paginatedComments = filteredComments.slice(startIndex, endIndex);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <CommentSkeleton/>;
   }
 
   if (error) {
