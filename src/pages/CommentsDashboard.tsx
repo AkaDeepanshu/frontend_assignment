@@ -159,7 +159,7 @@ const CommentsDashboard = () => {
 
   return (
     <div className="flex items-center justify-center ">
-      <div className="w-11/12 mx-auto flex flex-col pb-6 items-center">
+      <div className="w-11/12 flex flex-col pb-6 items-center">
         <div className="w-full bg-white">
           <FilterBar
             onSortChange={handleSortChange}
@@ -168,7 +168,7 @@ const CommentsDashboard = () => {
             initialSearch={searchTerm || ""}
           />
         </div>
-        <div className="mt-6">
+        <div className="md:mt-2 w-full">
           <Table
             comments={paginatedComments}
             currentPage={currentPage}

@@ -31,7 +31,7 @@ const Profile = () => {
         </div>
 
         {/* Profile Section */}
-        <div className="shadow-custom rounded-xl p-8 text-custom">
+        <div className="shadow-custom rounded-xl p-2 sm:p-8 text-custom">
           <div className="py-6 px-6">
             <div className="flex items-center gap-6 pb-6 mb-6">
             <div className="h-[90px] w-[90px] flex justify-center items-center rounded-full overflow-hidden bg-gray-200">

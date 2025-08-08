@@ -1,7 +1,5 @@
 @import "tailwindcss";
-* {
-  margin: 0px;
-}
+
 
 @theme {
   --color-custom: #282846;

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 
+
+
 type SortDirection = "asc" | "desc" | null;
 type SortField = "name" | "postId" | "email" | null;
 
@@ -75,12 +77,12 @@ const FilterBar = ({
   };
 
   return (
-    <div className="flex justify-between text-blue-900 items-start  bg-white ">
+    <div className="flex  flex-col-reverse my-4 md:my-0  md:flex-row justify-between text-blue-900 items-center  bg-white ">
       {/* Sort Buttons */}
-      <div className="flex gap-4 pt-14">
+      <div className="flex w-full justify-between  md:justify-start gap-4 pt-4 md:pt-14">
         <button
           onClick={() => handleSortClick("postId")}
-          className="shadow-button  px-3 py-1 rounded-lg text-sm bg-gray-50 hover:bg-gray-100 flex flex-row gap-1"
+          className="shadow-button truncate  px-3 py-1 rounded-lg text-sm bg-gray-50 hover:bg-gray-100 flex flex-row gap-1"
         >
           Sort Post ID
           <div className="flex flex-col text-[10px]">
@@ -89,14 +91,14 @@ const FilterBar = ({
         </button>
         <button
           onClick={() => handleSortClick("name")}
-          className="shadow-button px-3 py-1 rounded-lg text-sm bg-gray-50 hover:bg-gray-100  flex flex-row gap-1"
+          className="shadow-button truncate px-3 py-1 rounded-lg text-sm bg-gray-50 hover:bg-gray-100  flex flex-row gap-1"
         >
           Sort Name
           <div className="flex flex-col text-[10px]">{renderArrow("name")}</div>
         </button>
         <button
           onClick={() => handleSortClick("email")}
-          className="shadow-button px-3 py-1 rounded-lg text-sm bg-gray-50 hover:bg-gray-100  flex flex-row gap-1"
+          className="shadow-button truncate px-3 py-1 rounded-lg text-sm bg-gray-50 hover:bg-gray-100  flex flex-row gap-1"
         >
           Sort Email
           <div className="flex flex-col text-[10px]">
@@ -105,7 +107,7 @@ const FilterBar = ({
         </button>
       </div>
       {/* Search bar */}
-      <div className="relative w-72 py-7">
+      <div className="relative w-full md:w-72 py:4 md:py-7 ">
         <CiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400 text-base" />
         <input
           type="text"

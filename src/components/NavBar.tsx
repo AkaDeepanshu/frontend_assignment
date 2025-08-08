@@ -18,14 +18,16 @@ const NavBar = () => {
         <img src={logo} alt="Logo" />
         <button
           onClick={() => navigate("/profile")}
-          className="flex justify-center items-center gap-2 mx-20 hover:opacity-90"
+          className="flex justify-center items-center gap-2  hover:opacity-90"
         >
-          <div className="flex justify-center items-center bg-white w-10 h-10 rounded-full overflow-hidden border-2">
+          <div className="flex w-full ">
+          <div className="flex justify-center items-center bg-white w-10 h-10 rounded-full overflow-hidden">
             <img src={avatar} alt="User avatar" className="w-8 h-8" />
           </div>
-          <h2 className="text-white mx-4 my-2 text-[18px] font-semibold">
+          <h2 className="text-white mx-2 my-2 text-[18px] font-semibold">
             {user?.name || "Loading..."}
           </h2>
+          </div>
         </button>
       </div>
     </div>
