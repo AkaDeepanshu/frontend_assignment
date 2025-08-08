@@ -119,13 +119,16 @@ const CommentsDashboard = () => {
 
     // Apply search filter
     if (searchTerm) {
-      const searchLower = searchTerm.toLowerCase();
-      result = result.filter(
-        (comment) =>
-          comment.name.toLowerCase().includes(searchLower) ||
-          comment.email.toLowerCase().includes(searchLower) ||
-          comment.body.toLowerCase().includes(searchLower)
-      );
+      const searchLower = searchTerm.toLowerCase().trim();
+      result = result.filter((comment) => {
+        const nameMatch = comment.name?.toLowerCase().includes(searchLower) ?? false;
+        const emailMatch = comment.email?.toLowerCase().includes(searchLower) ?? false;
+        // Replace newlines with spaces for better text matching
+        const normalizedBody = comment.body?.toLowerCase().replace(/\n/g, ' ') ?? '';
+        const bodyMatch = normalizedBody.includes(searchLower);
+        
+        return nameMatch || emailMatch || bodyMatch;
+      });
     }
 
     // Apply sorting
